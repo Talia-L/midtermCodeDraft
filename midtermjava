@@ -5,7 +5,7 @@ import java.util.Scanner;
  *
  * @author TaliaL
  */
-public class gameofCraps
+public class GameofCraps
 {
 	public static void main(String[] args) 
 	{
@@ -34,7 +34,6 @@ public class gameofCraps
         
     	while (betAmount != 0) 
     	{
-    		{
     		dieOne = 1 + dieNumber.nextInt(7);
         	dieTwo = 1 + dieNumber.nextInt(7);
         	roll = dieOne + dieTwo; //roll amount being used
@@ -44,41 +43,39 @@ public class gameofCraps
             
     				if (roll == 2 || roll == 3 || roll == 12) //"lose" scenario/condition
                                     {
-    					System.out.println("You LOSE $" +betAmount + "!");
+    					System.out.println("You LOSE! $" +betAmount);
     					totSum[i] = "-$" +betAmount + " has been subtracted from your pot.";
-    					totSum[i] += (totalAmount - betAmount);
+    					totSum[i] += betAmount;
                                         
                                         System.out.println("Place your next bet: ");
                                         betAmount = keyboard.nextInt();
                                     }
 		
     				else if (roll == 7 || roll == 11) //"win" scenario/condition
-                      {
-    					System.out.println("You WIN! $" +betAmount + "!");
+                                    {
+    					System.out.println("You WIN! $" +betAmount);
     					totSum[i] = "+$" +betAmount + " has been added to your pot.";
-    				
-                        System.out.println("Place your next bet: ");
-                        betAmount = keyboard.nextInt();
-                      }
-    				
+    					
+                          
+                                        System.out.println("Place your next bet: ");
+                                        betAmount = keyboard.nextInt();
+                                    }
     				
     				else if (roll == 1 || roll == 4 || roll == 5 || roll == 6 || roll == 8 || roll == 9 || roll == 10)
-                      {
+                                    {
     					System.out.println("You rolled " +roll + ". POINT is " +roll);
-                        points += roll;
+                                        points += roll;
                                         
-                        // after points are accumulated, THEN roll the dice again to start the roll
+                                        // after points are accumulated, THEN roll the dice again to start the roll
                                         
-                        System.out.println("Place your next bet: ");
-                        betAmount = keyboard.nextInt();
+                                        System.out.println("Place your next bet: ");
+                                        betAmount = keyboard.nextInt();
                                         
-                        dieOne = 1 + dieNumber.nextInt(7);
-                        dieTwo = 1 + dieNumber.nextInt(7);
-                        roll = dieOne + dieTwo;
-                      }
-    				
-					}
-				}
-		}  
+                                        dieOne = 1 + dieNumber.nextInt(7);
+                                        dieTwo = 1 + dieNumber.nextInt(7);
+                                        roll = dieOne + dieTwo;
+                                    }
+                            }    				
+			}
+		}		
 	}
-}
